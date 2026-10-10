@@ -1,0 +1,9 @@
+{
+	"provideLibs": [	
+		    "libdummy_headers_runtime-x86_64-v2.so",
+		    "libdummy_headers_runtime.so",
+		    "libdummy_runtime_dev-x86_64-v2.so",
+		    "libdummy_runtime_dev.so"
+	],
+	"visible": true
+}

@@ -1,0 +1,6 @@
+shadow prebuilt repo: runtime (target)
+  upstream: bionic/apex
+  api-level: 32 (branch 32-20261010)
+  blobs: com.android.runtime-14000001.apex com.android.runtime.dev-14000001.apex 
+  dev-src: extracted dev payload + regenerated root Android.bp (gen_extractive_bp.py)
+  date: 2026-10-10
