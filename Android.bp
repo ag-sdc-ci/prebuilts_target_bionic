@@ -42,6 +42,9 @@ cc_prebuilt_library_headers {
     ramdisk_available: true,
     vendor_ramdisk_available: true,
     recovery_available: true,
+    system_shared_libs: [],
+    stl: "none",
+    no_libcrt: true,
     apex_available: [
         "//apex_available:anyapex",
         "//apex_available:platform",
@@ -61,6 +64,9 @@ cc_prebuilt_library_headers {
     ramdisk_available: true,
     vendor_ramdisk_available: true,
     recovery_available: true,
+    system_shared_libs: [],
+    stl: "none",
+    no_libcrt: true,
     apex_available: [
         "//apex_available:anyapex",
         "//apex_available:platform",
@@ -80,6 +86,9 @@ cc_prebuilt_library_headers {
     ramdisk_available: true,
     vendor_ramdisk_available: true,
     recovery_available: true,
+    system_shared_libs: [],
+    stl: "none",
+    no_libcrt: true,
     apex_available: [
         "//apex_available:anyapex",
         "//apex_available:platform",
