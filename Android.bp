@@ -5,6 +5,88 @@ package {
     default_applicable_licenses: ["Android-Apache-2.0"],
 }
 
+prebuilt_apex {
+    name: "com.android.runtime",
+    apex_name: "com.android.runtime",
+    source_apex_name: "com.android.runtime",
+    arch: {
+        x86_64: {
+            src: "com.android.runtime-14000001.apex",
+        },
+    },
+    filename: "com.android.runtime.apex",
+    prefer: true,
+    installable: true,
+}
+
+prebuilt_apex {
+    name: "com.android.runtime.dev",
+    apex_name: "com.android.runtime.dev",
+    source_apex_name: "com.android.runtime.dev",
+    arch: {
+        x86_64: {
+            src: "com.android.runtime.dev-14000001.apex",
+        },
+    },
+    filename: "com.android.runtime.dev.apex",
+    prefer: true,
+    installable: false,
+}
+
+cc_library_headers {
+    name: "libc_headers",
+    host_supported: true,
+    native_bridge_supported: true,
+    vendor_available: true,
+    product_available: true,
+    ramdisk_available: true,
+    vendor_ramdisk_available: true,
+    recovery_available: true,
+    apex_available: [
+        "//apex_available:anyapex",
+        "//apex_available:platform",
+    ],
+    export_include_dirs: [
+        "dev-src/include",
+    ],
+}
+
+cc_library_headers {
+    name: "bionic_libc_platform_headers",
+    host_supported: true,
+    native_bridge_supported: true,
+    vendor_available: true,
+    product_available: true,
+    ramdisk_available: true,
+    vendor_ramdisk_available: true,
+    recovery_available: true,
+    apex_available: [
+        "//apex_available:anyapex",
+        "//apex_available:platform",
+    ],
+    export_include_dirs: [
+        "dev-src/include/platform",
+    ],
+}
+
+cc_library_headers {
+    name: "libc_llndk_headers",
+    host_supported: true,
+    native_bridge_supported: true,
+    vendor_available: true,
+    product_available: true,
+    ramdisk_available: true,
+    vendor_ramdisk_available: true,
+    recovery_available: true,
+    apex_available: [
+        "//apex_available:anyapex",
+        "//apex_available:platform",
+    ],
+    export_include_dirs: [
+        "dev-src/include",
+    ],
+}
+
 cc_prebuilt_library_shared {
     name: "libdummy_runtime_dev",
     vendor_available: true,
@@ -138,6 +220,7 @@ cc_library_headers {
         "//apex_available:platform",
     ],
     export_include_dirs: [
+        "dev-src/include",
         "dev-src/include/async_safe",
     ],
 }
