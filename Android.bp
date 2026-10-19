@@ -33,7 +33,7 @@ prebuilt_apex {
     installable: false,
 }
 
-cc_library_headers {
+cc_prebuilt_library_headers {
     name: "libc_headers",
     host_supported: true,
     native_bridge_supported: true,
@@ -49,9 +49,10 @@ cc_library_headers {
     export_include_dirs: [
         "dev-src/include",
     ],
+    prefer: true,
 }
 
-cc_library_headers {
+cc_prebuilt_library_headers {
     name: "bionic_libc_platform_headers",
     host_supported: true,
     native_bridge_supported: true,
@@ -67,9 +68,10 @@ cc_library_headers {
     export_include_dirs: [
         "dev-src/include/platform",
     ],
+    prefer: true,
 }
 
-cc_library_headers {
+cc_prebuilt_library_headers {
     name: "libc_llndk_headers",
     host_supported: true,
     native_bridge_supported: true,
@@ -85,6 +87,7 @@ cc_library_headers {
     export_include_dirs: [
         "dev-src/include",
     ],
+    prefer: true,
 }
 
 cc_prebuilt_library_shared {
