@@ -529,5 +529,88 @@ cc_library_headers {
 
 prebuilt_etc {
     name: "linker_config_json",
-    src: "etc/linker.config.json",
+    src: "dev-src/etc/linker.config.json",
+}
+
+cc_prebuilt_object {
+    name: "crtbegin_so",
+    arch: {
+        x86_64: {
+            srcs: ["dev-src/lib64/crtbegin_so.o"],
+        },
+    },
+    prefer: true,
+}
+
+cc_prebuilt_object {
+    name: "crtend_so",
+    arch: {
+        x86_64: {
+            srcs: ["dev-src/lib64/crtend_so.o"],
+        },
+    },
+    prefer: true,
+}
+
+cc_prebuilt_object {
+    name: "crtbegin_static",
+    arch: {
+        x86_64: {
+            srcs: ["dev-src/lib64/crtbegin_static.o"],
+        },
+    },
+    prefer: true,
+}
+
+cc_prebuilt_object {
+    name: "crtbegin_dynamic",
+    arch: {
+        x86_64: {
+            srcs: ["dev-src/lib64/crtbegin_dynamic.o"],
+        },
+    },
+    prefer: true,
+}
+
+cc_prebuilt_object {
+    name: "crtend_android",
+    arch: {
+        x86_64: {
+            srcs: ["dev-src/lib64/crtend_android.o"],
+        },
+    },
+    prefer: true,
+}
+
+cc_prebuilt_library_static {
+    name: "libc_static",
+    arch: {
+        x86_64: {
+            srcs: ["dev-src/lib64/libc.a"],
+        },
+    },
+    export_include_dirs: ["dev-src/include"],
+    prefer: true,
+}
+
+cc_prebuilt_library_static {
+    name: "libm_static",
+    arch: {
+        x86_64: {
+            srcs: ["dev-src/lib64/libm.a"],
+        },
+    },
+    export_include_dirs: ["dev-src/include"],
+    prefer: true,
+}
+
+cc_prebuilt_library_static {
+    name: "libdl_static",
+    arch: {
+        x86_64: {
+            srcs: ["dev-src/lib64/libdl.a"],
+        },
+    },
+    export_include_dirs: ["dev-src/include"],
+    prefer: true,
 }
