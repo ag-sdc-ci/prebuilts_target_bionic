@@ -539,6 +539,8 @@ cc_prebuilt_object {
             srcs: ["dev-src/lib64/crtbegin_so.o"],
         },
     },
+    nocrt: true,
+    system_shared_libs: [],
     stl: "none",
     prefer: true,
 }
@@ -550,6 +552,8 @@ cc_prebuilt_object {
             srcs: ["dev-src/lib64/crtend_so.o"],
         },
     },
+    nocrt: true,
+    system_shared_libs: [],
     stl: "none",
     prefer: true,
 }
@@ -561,6 +565,8 @@ cc_prebuilt_object {
             srcs: ["dev-src/lib64/crtbegin_static.o"],
         },
     },
+    nocrt: true,
+    system_shared_libs: [],
     stl: "none",
     prefer: true,
 }
@@ -572,6 +578,8 @@ cc_prebuilt_object {
             srcs: ["dev-src/lib64/crtbegin_dynamic.o"],
         },
     },
+    nocrt: true,
+    system_shared_libs: [],
     stl: "none",
     prefer: true,
 }
@@ -583,6 +591,8 @@ cc_prebuilt_object {
             srcs: ["dev-src/lib64/crtend_android.o"],
         },
     },
+    nocrt: true,
+    system_shared_libs: [],
     stl: "none",
     prefer: true,
 }
@@ -595,6 +605,8 @@ cc_prebuilt_library_static {
         },
     },
     export_include_dirs: ["dev-src/include"],
+    nocrt: true,
+    system_shared_libs: [],
     stl: "none",
     prefer: true,
 }
@@ -607,6 +619,8 @@ cc_prebuilt_library_static {
         },
     },
     export_include_dirs: ["dev-src/include"],
+    nocrt: true,
+    system_shared_libs: [],
     stl: "none",
     prefer: true,
 }
@@ -619,6 +633,8 @@ cc_prebuilt_library_static {
         },
     },
     export_include_dirs: ["dev-src/include"],
+    nocrt: true,
+    system_shared_libs: [],
     stl: "none",
     prefer: true,
 }
