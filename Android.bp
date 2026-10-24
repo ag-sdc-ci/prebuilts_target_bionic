@@ -19,19 +19,6 @@ prebuilt_apex {
     installable: true,
 }
 
-prebuilt_apex {
-    name: "com.android.runtime.dev",
-    apex_name: "com.android.runtime.dev",
-    source_apex_name: "com.android.runtime.dev",
-    arch: {
-        x86_64: {
-            src: "com.android.runtime.dev-14000001.apex",
-        },
-    },
-    filename: "com.android.runtime.dev.apex",
-    prefer: true,
-    installable: false,
-}
 
 cc_prebuilt_library_headers {
     name: "libc_headers",
