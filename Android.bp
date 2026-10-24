@@ -50,7 +50,7 @@ cc_prebuilt_library_headers {
         "//apex_available:platform",
     ],
     export_include_dirs: [
-        "dev-src/include",
+        "include",
     ],
     prefer: true,
 }
@@ -72,7 +72,7 @@ cc_prebuilt_library_headers {
         "//apex_available:platform",
     ],
     export_include_dirs: [
-        "dev-src/include/platform",
+        "include/platform",
     ],
     prefer: true,
 }
@@ -94,27 +94,11 @@ cc_prebuilt_library_headers {
         "//apex_available:platform",
     ],
     export_include_dirs: [
-        "dev-src/include",
+        "include",
     ],
     prefer: true,
 }
 
-cc_prebuilt_library_shared {
-    name: "libdummy_runtime_dev",
-    vendor_available: true,
-    product_available: true,
-    recovery_available: true,
-    host_supported: true,
-    check_elf_files: false,
-    arch: {
-        x86_64: {
-            srcs: [
-                "dev-src/lib/_libdummy.so",
-            ],
-        },
-    },
-    prefer: true,
-}
 
 cc_library_headers {
     name: "android_headers",
@@ -127,7 +111,7 @@ cc_library_headers {
         "//apex_available:platform",
     ],
     export_include_dirs: [
-        "dev-src/include/android",
+        "include/android",
     ],
 }
 
@@ -142,7 +126,7 @@ cc_library_headers {
         "//apex_available:platform",
     ],
     export_include_dirs: [
-        "dev-src/include/arpa",
+        "include/arpa",
     ],
 }
 
@@ -157,7 +141,7 @@ cc_library_headers {
         "//apex_available:platform",
     ],
     export_include_dirs: [
-        "dev-src/include/asm-arm/asm",
+        "include/asm-arm/asm",
     ],
 }
 
@@ -172,7 +156,7 @@ cc_library_headers {
         "//apex_available:platform",
     ],
     export_include_dirs: [
-        "dev-src/include/asm-arm64/asm",
+        "include/asm-arm64/asm",
     ],
 }
 
@@ -187,7 +171,7 @@ cc_library_headers {
         "//apex_available:platform",
     ],
     export_include_dirs: [
-        "dev-src/include/asm-generic",
+        "include/asm-generic",
     ],
 }
 
@@ -202,7 +186,7 @@ cc_library_headers {
         "//apex_available:platform",
     ],
     export_include_dirs: [
-        "dev-src/include/asm-riscv/asm",
+        "include/asm-riscv/asm",
     ],
 }
 
@@ -217,7 +201,7 @@ cc_library_headers {
         "//apex_available:platform",
     ],
     export_include_dirs: [
-        "dev-src/include/asm-x86/asm",
+        "include/asm-x86/asm",
     ],
 }
 
@@ -232,8 +216,8 @@ cc_library_headers {
         "//apex_available:platform",
     ],
     export_include_dirs: [
-        "dev-src/include",
-        "dev-src/include/async_safe",
+        "include",
+        "include/async_safe",
     ],
 }
 
@@ -248,8 +232,8 @@ cc_library_headers {
         "//apex_available:platform",
     ],
     export_include_dirs: [
-        "dev-src/include/bits",
-        "dev-src/include/bits/fortify",
+        "include/bits",
+        "include/bits/fortify",
     ],
 }
 
@@ -264,7 +248,7 @@ cc_library_headers {
         "//apex_available:platform",
     ],
     export_include_dirs: [
-        "dev-src/include/drm",
+        "include/drm",
     ],
 }
 
@@ -279,7 +263,7 @@ cc_library_headers {
         "//apex_available:platform",
     ],
     export_include_dirs: [
-        "dev-src/include",
+        "include",
     ],
 }
 
@@ -294,35 +278,35 @@ cc_library_headers {
         "//apex_available:platform",
     ],
     export_include_dirs: [
-        "dev-src/include/linux",
-        "dev-src/include/linux/android",
-        "dev-src/include/linux/byteorder",
-        "dev-src/include/linux/caif",
-        "dev-src/include/linux/can",
-        "dev-src/include/linux/cifs",
-        "dev-src/include/linux/dvb",
-        "dev-src/include/linux/genwqe",
-        "dev-src/include/linux/hdlc",
-        "dev-src/include/linux/hsi",
-        "dev-src/include/linux/iio",
-        "dev-src/include/linux/isdn",
-        "dev-src/include/linux/misc",
-        "dev-src/include/linux/mmc",
-        "dev-src/include/linux/netfilter",
-        "dev-src/include/linux/netfilter/ipset",
-        "dev-src/include/linux/netfilter_arp",
-        "dev-src/include/linux/netfilter_bridge",
-        "dev-src/include/linux/netfilter_ipv4",
-        "dev-src/include/linux/netfilter_ipv6",
-        "dev-src/include/linux/nfsd",
-        "dev-src/include/linux/raid",
-        "dev-src/include/linux/sched",
-        "dev-src/include/linux/spi",
-        "dev-src/include/linux/sunrpc",
-        "dev-src/include/linux/surface_aggregator",
-        "dev-src/include/linux/tc_act",
-        "dev-src/include/linux/tc_ematch",
-        "dev-src/include/linux/usb",
+        "include/linux",
+        "include/linux/android",
+        "include/linux/byteorder",
+        "include/linux/caif",
+        "include/linux/can",
+        "include/linux/cifs",
+        "include/linux/dvb",
+        "include/linux/genwqe",
+        "include/linux/hdlc",
+        "include/linux/hsi",
+        "include/linux/iio",
+        "include/linux/isdn",
+        "include/linux/misc",
+        "include/linux/mmc",
+        "include/linux/netfilter",
+        "include/linux/netfilter/ipset",
+        "include/linux/netfilter_arp",
+        "include/linux/netfilter_bridge",
+        "include/linux/netfilter_ipv4",
+        "include/linux/netfilter_ipv6",
+        "include/linux/nfsd",
+        "include/linux/raid",
+        "include/linux/sched",
+        "include/linux/spi",
+        "include/linux/sunrpc",
+        "include/linux/surface_aggregator",
+        "include/linux/tc_act",
+        "include/linux/tc_ematch",
+        "include/linux/usb",
     ],
 }
 
@@ -337,8 +321,8 @@ cc_library_headers {
         "//apex_available:platform",
     ],
     export_include_dirs: [
-        "dev-src/include/misc",
-        "dev-src/include/misc/uacce",
+        "include/misc",
+        "include/misc/uacce",
     ],
 }
 
@@ -353,7 +337,7 @@ cc_library_headers {
         "//apex_available:platform",
     ],
     export_include_dirs: [
-        "dev-src/include/mtd",
+        "include/mtd",
     ],
 }
 
@@ -368,7 +352,7 @@ cc_library_headers {
         "//apex_available:platform",
     ],
     export_include_dirs: [
-        "dev-src/include/net",
+        "include/net",
     ],
 }
 
@@ -383,7 +367,7 @@ cc_library_headers {
         "//apex_available:platform",
     ],
     export_include_dirs: [
-        "dev-src/include/netinet",
+        "include/netinet",
     ],
 }
 
@@ -398,7 +382,7 @@ cc_library_headers {
         "//apex_available:platform",
     ],
     export_include_dirs: [
-        "dev-src/include/netpacket",
+        "include/netpacket",
     ],
 }
 
@@ -413,8 +397,8 @@ cc_library_headers {
         "//apex_available:platform",
     ],
     export_include_dirs: [
-        "dev-src/include/platform",
-        "dev-src/include/platform/bionic",
+        "include/platform",
+        "include/platform/bionic",
     ],
 }
 
@@ -429,7 +413,7 @@ cc_library_headers {
         "//apex_available:platform",
     ],
     export_include_dirs: [
-        "dev-src/include/private",
+        "include/private",
     ],
 }
 
@@ -444,8 +428,8 @@ cc_library_headers {
         "//apex_available:platform",
     ],
     export_include_dirs: [
-        "dev-src/include/rdma",
-        "dev-src/include/rdma/hfi",
+        "include/rdma",
+        "include/rdma/hfi",
     ],
 }
 
@@ -460,8 +444,8 @@ cc_library_headers {
         "//apex_available:platform",
     ],
     export_include_dirs: [
-        "dev-src/include/scsi",
-        "dev-src/include/scsi/fc",
+        "include/scsi",
+        "include/scsi/fc",
     ],
 }
 
@@ -476,9 +460,9 @@ cc_library_headers {
         "//apex_available:platform",
     ],
     export_include_dirs: [
-        "dev-src/include/sound",
-        "dev-src/include/sound/intel/avs",
-        "dev-src/include/sound/sof",
+        "include/sound",
+        "include/sound/intel/avs",
+        "include/sound/sof",
     ],
 }
 
@@ -493,7 +477,7 @@ cc_library_headers {
         "//apex_available:platform",
     ],
     export_include_dirs: [
-        "dev-src/include/sys",
+        "include/sys",
     ],
 }
 
@@ -508,7 +492,7 @@ cc_library_headers {
         "//apex_available:platform",
     ],
     export_include_dirs: [
-        "dev-src/include/video",
+        "include/video",
     ],
 }
 
@@ -523,20 +507,47 @@ cc_library_headers {
         "//apex_available:platform",
     ],
     export_include_dirs: [
-        "dev-src/include/xen",
+        "include/xen",
     ],
 }
 
 prebuilt_etc {
     name: "linker_config_json",
-    src: "dev-src/etc/linker.config.json",
+    src: "etc/linker.config.json",
+}
+
+ndk_library {
+    name: "libc",
+    symbol_file: "stubs/libc.map.txt",
+    first_version: "9",
+}
+
+ndk_library {
+    name: "libm",
+    symbol_file: "stubs/libm.map.txt",
+    first_version: "9",
+}
+
+ndk_library {
+    name: "libdl",
+    symbol_file: "stubs/libdl.map.txt",
+    first_version: "9",
+}
+
+ndk_library {
+    name: "libstdc++",
+    symbol_file: "stubs/libc.map.txt",
+    first_version: "9",
 }
 
 cc_prebuilt_object {
     name: "crtbegin_so",
-    arch: {
-        x86_64: {
-            srcs: ["dev-src/lib64/crtbegin_so.o"],
+    multilib: {
+        lib32: {
+            srcs: ["lib/crtbegin_so.o"],
+        },
+        lib64: {
+            srcs: ["lib64/crtbegin_so.o"],
         },
     },
     system_shared_libs: [],
@@ -550,9 +561,12 @@ cc_prebuilt_object {
 
 cc_prebuilt_object {
     name: "crtend_so",
-    arch: {
-        x86_64: {
-            srcs: ["dev-src/lib64/crtend_so.o"],
+    multilib: {
+        lib32: {
+            srcs: ["lib/crtend_so.o"],
+        },
+        lib64: {
+            srcs: ["lib64/crtend_so.o"],
         },
     },
     system_shared_libs: [],
@@ -566,9 +580,12 @@ cc_prebuilt_object {
 
 cc_prebuilt_object {
     name: "crtbegin_static",
-    arch: {
-        x86_64: {
-            srcs: ["dev-src/lib64/crtbegin_static.o"],
+    multilib: {
+        lib32: {
+            srcs: ["lib/crtbegin_static.o"],
+        },
+        lib64: {
+            srcs: ["lib64/crtbegin_static.o"],
         },
     },
     system_shared_libs: [],
@@ -582,9 +599,12 @@ cc_prebuilt_object {
 
 cc_prebuilt_object {
     name: "crtbegin_dynamic",
-    arch: {
-        x86_64: {
-            srcs: ["dev-src/lib64/crtbegin_dynamic.o"],
+    multilib: {
+        lib32: {
+            srcs: ["lib/crtbegin_dynamic.o"],
+        },
+        lib64: {
+            srcs: ["lib64/crtbegin_dynamic.o"],
         },
     },
     system_shared_libs: [],
@@ -598,9 +618,12 @@ cc_prebuilt_object {
 
 cc_prebuilt_object {
     name: "crtend_android",
-    arch: {
-        x86_64: {
-            srcs: ["dev-src/lib64/crtend_android.o"],
+    multilib: {
+        lib32: {
+            srcs: ["lib/crtend_android.o"],
+        },
+        lib64: {
+            srcs: ["lib64/crtend_android.o"],
         },
     },
     system_shared_libs: [],
@@ -612,44 +635,314 @@ cc_prebuilt_object {
     ],
 }
 
-cc_prebuilt_library_static {
-    name: "libc_static",
-    arch: {
-        x86_64: {
-            srcs: ["dev-src/lib64/libc.a"],
+cc_prebuilt_library {
+    name: "libc",
+    stubs: {
+        symbol_file: "stubs/libc.map.txt",
+        versions: [
+            "29",
+            "R",
+            "current",
+        ],
+    },
+    llndk: {
+        symbol_file: "stubs/libc.map.txt",
+        export_headers_as_system: true,
+        export_preprocessed_headers: ["include"],
+        export_llndk_headers: ["libc_llndk_headers"],
+    },
+    export_include_dirs: ["include"],
+    system_shared_libs: [],
+    stl: "none",
+    nocrt: true,
+    apex_available: [
+        "//apex_available:platform",
+        "com.android.runtime",
+        "//apex_available:anyapex",
+    ],
+    multilib: {
+        lib32: {
+            shared: {
+                srcs: ["lib/libc.so"],
+            },
+            static: {
+                srcs: ["lib/libc.a"],
+            },
+        },
+        lib64: {
+            shared: {
+                srcs: ["lib64/libc.so"],
+            },
+            static: {
+                srcs: ["lib64/libc.a"],
+            },
         },
     },
-    export_include_dirs: ["dev-src/include"],
+    prefer: true,
+}
+
+cc_prebuilt_library_static {
+    name: "libc_static",
+    multilib: {
+        lib32: {
+            srcs: ["lib/libc.a"],
+        },
+        lib64: {
+            srcs: ["lib64/libc.a"],
+        },
+    },
+    export_include_dirs: ["include"],
     nocrt: true,
     system_shared_libs: [],
     stl: "none",
+    prefer: true,
+}
+
+cc_prebuilt_library_static {
+    name: "libc_nomalloc",
+    multilib: {
+        lib32: {
+            srcs: ["lib/libc_nomalloc.a"],
+        },
+        lib64: {
+            srcs: ["lib64/libc_nomalloc.a"],
+        },
+    },
+    export_include_dirs: ["include"],
+    nocrt: true,
+    system_shared_libs: [],
+    stl: "none",
+    prefer: true,
+}
+
+cc_prebuilt_library {
+    name: "libm",
+    stubs: {
+        symbol_file: "stubs/libm.map.txt",
+        versions: [
+            "29",
+            "current",
+        ],
+    },
+    llndk: {
+        symbol_file: "stubs/libm.map.txt",
+    },
+    export_include_dirs: ["include"],
+    system_shared_libs: [],
+    stl: "none",
+    nocrt: true,
+    apex_available: [
+        "//apex_available:platform",
+        "com.android.runtime",
+        "//apex_available:anyapex",
+    ],
+    multilib: {
+        lib32: {
+            shared: {
+                srcs: ["lib/libm.so"],
+            },
+            static: {
+                srcs: ["lib/libm.a"],
+            },
+        },
+        lib64: {
+            shared: {
+                srcs: ["lib64/libm.so"],
+            },
+            static: {
+                srcs: ["lib64/libm.a"],
+            },
+        },
+    },
     prefer: true,
 }
 
 cc_prebuilt_library_static {
     name: "libm_static",
-    arch: {
-        x86_64: {
-            srcs: ["dev-src/lib64/libm.a"],
+    multilib: {
+        lib32: {
+            srcs: ["lib/libm.a"],
+        },
+        lib64: {
+            srcs: ["lib64/libm.a"],
         },
     },
-    export_include_dirs: ["dev-src/include"],
+    export_include_dirs: ["include"],
     nocrt: true,
     system_shared_libs: [],
     stl: "none",
     prefer: true,
 }
 
-cc_prebuilt_library_static {
-    name: "libdl_static",
-    arch: {
-        x86_64: {
-            srcs: ["dev-src/lib64/libdl.a"],
+cc_prebuilt_library {
+    name: "libdl",
+    stubs: {
+        symbol_file: "stubs/libdl.map.txt",
+        versions: [
+            "29",
+            "current",
+        ],
+    },
+    llndk: {
+        symbol_file: "stubs/libdl.map.txt",
+    },
+    export_include_dirs: ["include"],
+    system_shared_libs: [],
+    stl: "none",
+    nocrt: true,
+    apex_available: [
+        "//apex_available:platform",
+        "com.android.runtime",
+        "//apex_available:anyapex",
+    ],
+    multilib: {
+        lib32: {
+            shared: {
+                srcs: ["lib/libdl.so"],
+            },
+            static: {
+                srcs: ["lib/libdl.a"],
+            },
+        },
+        lib64: {
+            shared: {
+                srcs: ["lib64/libdl.so"],
+            },
+            static: {
+                srcs: ["lib64/libdl.a"],
+            },
         },
     },
-    export_include_dirs: ["dev-src/include"],
+    prefer: true,
+}
+
+cc_prebuilt_library_static {
+    name: "libdl_static",
+    multilib: {
+        lib32: {
+            srcs: ["lib/libdl.a"],
+        },
+        lib64: {
+            srcs: ["lib64/libdl.a"],
+        },
+    },
+    export_include_dirs: ["include"],
     nocrt: true,
     system_shared_libs: [],
     stl: "none",
+    prefer: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "libdl_android",
+    export_include_dirs: ["include"],
+    system_shared_libs: [],
+    stl: "none",
+    nocrt: true,
+    apex_available: [
+        "//apex_available:platform",
+        "com.android.runtime",
+        "//apex_available:anyapex",
+    ],
+    multilib: {
+        lib32: {
+            srcs: ["lib/libdl_android.so"],
+        },
+        lib64: {
+            srcs: ["lib64/libdl_android.so"],
+        },
+    },
+    prefer: true,
+}
+
+cc_prebuilt_library {
+    name: "libasync_safe",
+    export_include_dirs: ["include"],
+    system_shared_libs: [],
+    stl: "none",
+    nocrt: true,
+    apex_available: [
+        "//apex_available:platform",
+        "com.android.runtime",
+        "//apex_available:anyapex",
+    ],
+    multilib: {
+        lib32: {
+            shared: {
+                srcs: ["lib/libasync_safe.so"],
+            },
+            static: {
+                srcs: ["lib/libasync_safe.a"],
+            },
+        },
+        lib64: {
+            shared: {
+                srcs: ["lib64/libasync_safe.so"],
+            },
+            static: {
+                srcs: ["lib64/libasync_safe.a"],
+            },
+        },
+    },
+    prefer: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "libc_malloc_debug",
+    export_include_dirs: ["include"],
+    system_shared_libs: [],
+    stl: "none",
+    apex_available: [
+        "//apex_available:platform",
+        "com.android.runtime",
+        "//apex_available:anyapex",
+    ],
+    multilib: {
+        lib32: {
+            srcs: ["lib/libc_malloc_debug.so"],
+        },
+        lib64: {
+            srcs: ["lib64/libc_malloc_debug.so"],
+        },
+    },
+    prefer: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "libc_malloc_hooks",
+    export_include_dirs: ["include"],
+    system_shared_libs: [],
+    stl: "none",
+    apex_available: [
+        "//apex_available:platform",
+        "com.android.runtime",
+        "//apex_available:anyapex",
+    ],
+    multilib: {
+        lib32: {
+            srcs: ["lib/libc_malloc_hooks.so"],
+        },
+        lib64: {
+            srcs: ["lib64/libc_malloc_hooks.so"],
+        },
+    },
+    prefer: true,
+}
+
+cc_prebuilt_binary {
+    name: "linker",
+    multilib: {
+        lib32: {
+            srcs: ["bin/linker"],
+        },
+        lib64: {
+            srcs: ["bin/linker64"],
+        },
+    },
+    apex_available: [
+        "//apex_available:platform",
+        "com.android.runtime",
+        "//apex_available:anyapex",
+    ],
     prefer: true,
 }

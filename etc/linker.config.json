@@ -1,0 +1,30 @@
+{
+	"provideLibs": [	
+		    "ld-android-x86_64-v2.so",
+		    "ld-android.so",
+		    "libasync_safe-x86_64-v2.so",
+		    "libasync_safe.so",
+		    "libc-x86_64-v2.so",
+		    "libc.so",
+		    "libc_malloc_debug-x86_64-v2.so",
+		    "libc_malloc_debug.so",
+		    "libc_malloc_hooks-x86_64-v2.so",
+		    "libc_malloc_hooks.so",
+		    "libdl-x86_64-v2.so",
+		    "libdl.so",
+		    "libdl_android-x86_64-v2.so",
+		    "libdl_android.so",
+		    "libdummy_runtime-x86_64-v2.so",
+		    "libdummy_runtime.so",
+		    "libm-x86_64-v2.so",
+		    "libm.so"
+	],
+	"requireLibs": [	
+		    "libbase.so",
+		    "libc.so.6",
+		    "libm.so.6",
+		    "libz.so",
+		    "libziparchive.so"
+	],
+	"visible": true
+}
