@@ -537,46 +537,82 @@ ndk_library {
 }
 
 
-cc_prebuilt_object {
-    name: "crtbegin_so",
-    multilib: {
-        lib32: {
-            srcs: ["lib/crtbegin_so.o"],
-        },
-        lib64: {
-            srcs: ["lib64/crtbegin_so.o"],
-        },
-    },
-    system_shared_libs: [],
-    stl: "none",
-    prefer: true,
+cc_defaults {
+    name: "crt_defaults",
+    recovery_available: true,
+    vendor_available: true,
+    product_available: true,
+    ramdisk_available: true,
+    vendor_ramdisk_available: true,
+    native_bridge_supported: true,
     apex_available: [
         "//apex_available:platform",
         "//apex_available:anyapex",
+    ],
+    min_sdk_version: "16",
+    stl: "none",
+    crt: true,
+    system_shared_libs: [],
+    sanitize: {
+        never: true,
+    },
+}
+
+cc_defaults {
+    name: "crt_so_defaults",
+    defaults: ["crt_defaults"],
+    arch: {
+        x86: {
+            cflags: ["-fPIC"],
+        },
+        x86_64: {
+            cflags: ["-fPIC"],
+        },
+    },
+}
+
+cc_object {
+    name: "crtbrand",
+    local_include_dirs: [
+        "include",
+        "include/private",
+    ],
+    product_variables: {
+        platform_sdk_version: {
+            asflags: ["-DPLATFORM_SDK_VERSION=%d"],
+        },
+    },
+    srcs: ["crt/crtbrand.S"],
+    defaults: ["crt_so_defaults"],
+    exclude_from_ndk_sysroot: true,
+}
+
+cc_object {
+    name: "crtbegin_so",
+    local_include_dirs: [
+        "include",
+        "crt",
+    ],
+    srcs: ["crt/crtbegin_so.c"],
+    defaults: ["crt_so_defaults"],
+    objs: [
+        "crtbrand",
     ],
 }
 
-cc_prebuilt_object {
+cc_object {
     name: "crtend_so",
-    multilib: {
-        lib32: {
-            srcs: ["lib/crtend_so.o"],
-        },
-        lib64: {
-            srcs: ["lib64/crtend_so.o"],
-        },
-    },
-    system_shared_libs: [],
-    stl: "none",
-    prefer: true,
-    apex_available: [
-        "//apex_available:platform",
-        "//apex_available:anyapex",
+    local_include_dirs: [
+        "include",
+        "include/private",
     ],
+    srcs: ["crt/crtend_so.S"],
+    defaults: ["crt_so_defaults"],
 }
 
 cc_prebuilt_object {
     name: "crtbegin_static",
+    min_sdk_version: "16",
     multilib: {
         lib32: {
             srcs: ["lib/crtbegin_static.o"],
@@ -596,6 +632,7 @@ cc_prebuilt_object {
 
 cc_prebuilt_object {
     name: "crtbegin_dynamic",
+    min_sdk_version: "16",
     multilib: {
         lib32: {
             srcs: ["lib/crtbegin_dynamic.o"],
@@ -615,6 +652,7 @@ cc_prebuilt_object {
 
 cc_prebuilt_object {
     name: "crtend_android",
+    min_sdk_version: "16",
     multilib: {
         lib32: {
             srcs: ["lib/crtend_android.o"],
@@ -636,6 +674,8 @@ cc_prebuilt_library {
     name: "libc",
     recovery_available: true,
     vendor_available: true,
+    ramdisk_available: true,
+    vendor_ramdisk_available: true,
     stubs: {
         symbol_file: "stubs/libc.map.txt",
         versions: [
@@ -718,6 +758,8 @@ cc_prebuilt_library {
     name: "libm",
     recovery_available: true,
     vendor_available: true,
+    ramdisk_available: true,
+    vendor_ramdisk_available: true,
     stubs: {
         symbol_file: "stubs/libm.map.txt",
         versions: [
@@ -779,6 +821,8 @@ cc_prebuilt_library {
     name: "libdl",
     recovery_available: true,
     vendor_available: true,
+    ramdisk_available: true,
+    vendor_ramdisk_available: true,
     stubs: {
         symbol_file: "stubs/libdl.map.txt",
         versions: [
@@ -960,4 +1004,35 @@ cc_defaults {
             ldflags: ["-z max-page-size=0x200000"],
         },
     },
+}
+
+cc_object {
+    name: "crt_pad_segment",
+    local_include_dirs: [
+        "include",
+        "include/private",
+    ],
+    srcs: ["crt/crt_pad_segment.S"],
+    defaults: ["crt_defaults"],
+}
+
+cc_library {
+    name: "libstdc++",
+    recovery_available: true,
+    vendor_available: true,
+    product_available: true,
+    ramdisk_available: true,
+    vendor_ramdisk_available: true,
+    system_shared_libs: [],
+    stl: "none",
+    apex_available: [
+        "//apex_available:platform",
+        "//apex_available:anyapex",
+    ],
+}
+
+ndk_library {
+    name: "libstdc++",
+    symbol_file: "stubs/libc.map.txt",
+    first_version: "9",
 }
