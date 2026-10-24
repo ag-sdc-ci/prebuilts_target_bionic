@@ -542,6 +542,10 @@ cc_prebuilt_object {
     system_shared_libs: [],
     stl: "none",
     prefer: true,
+    apex_available: [
+        "//apex_available:platform",
+        "//apex_available:anyapex",
+    ],
 }
 
 cc_prebuilt_object {
@@ -554,6 +558,10 @@ cc_prebuilt_object {
     system_shared_libs: [],
     stl: "none",
     prefer: true,
+    apex_available: [
+        "//apex_available:platform",
+        "//apex_available:anyapex",
+    ],
 }
 
 cc_prebuilt_object {
@@ -566,6 +574,10 @@ cc_prebuilt_object {
     system_shared_libs: [],
     stl: "none",
     prefer: true,
+    apex_available: [
+        "//apex_available:platform",
+        "//apex_available:anyapex",
+    ],
 }
 
 cc_prebuilt_object {
@@ -578,6 +590,10 @@ cc_prebuilt_object {
     system_shared_libs: [],
     stl: "none",
     prefer: true,
+    apex_available: [
+        "//apex_available:platform",
+        "//apex_available:anyapex",
+    ],
 }
 
 cc_prebuilt_object {
@@ -590,6 +606,10 @@ cc_prebuilt_object {
     system_shared_libs: [],
     stl: "none",
     prefer: true,
+    apex_available: [
+        "//apex_available:platform",
+        "//apex_available:anyapex",
+    ],
 }
 
 cc_prebuilt_library_static {
