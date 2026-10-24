@@ -26,7 +26,7 @@
  * SUCH DAMAGE.
  */
 
-#include "../../bionic/libc_init_common.h"
+#include "libc_init_common.h"
 #include <stddef.h>
 #include <stdint.h>
 

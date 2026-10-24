@@ -610,64 +610,42 @@ cc_object {
     defaults: ["crt_so_defaults"],
 }
 
-cc_prebuilt_object {
+cc_object {
     name: "crtbegin_static",
-    min_sdk_version: "16",
-    multilib: {
-        lib32: {
-            srcs: ["lib/crtbegin_static.o"],
-        },
-        lib64: {
-            srcs: ["lib64/crtbegin_static.o"],
-        },
-    },
-    system_shared_libs: [],
-    stl: "none",
-    prefer: true,
-    apex_available: [
-        "//apex_available:platform",
-        "//apex_available:anyapex",
+    local_include_dirs: [
+        "include",
+        "crt",
+    ],
+    srcs: ["crt/crtbegin.c"],
+    cflags: ["-DCRTBEGIN_STATIC"],
+    defaults: ["crt_defaults"],
+    objs: [
+        "crtbrand",
     ],
 }
 
-cc_prebuilt_object {
+cc_object {
     name: "crtbegin_dynamic",
-    min_sdk_version: "16",
-    multilib: {
-        lib32: {
-            srcs: ["lib/crtbegin_dynamic.o"],
-        },
-        lib64: {
-            srcs: ["lib64/crtbegin_dynamic.o"],
-        },
-    },
-    system_shared_libs: [],
-    stl: "none",
-    prefer: true,
-    apex_available: [
-        "//apex_available:platform",
-        "//apex_available:anyapex",
+    local_include_dirs: [
+        "include",
+        "crt",
+    ],
+    srcs: ["crt/crtbegin.c"],
+    defaults: ["crt_defaults"],
+    objs: [
+        "crtbrand",
     ],
 }
 
-cc_prebuilt_object {
+cc_object {
     name: "crtend_android",
-    min_sdk_version: "16",
-    multilib: {
-        lib32: {
-            srcs: ["lib/crtend_android.o"],
-        },
-        lib64: {
-            srcs: ["lib64/crtend_android.o"],
-        },
-    },
-    system_shared_libs: [],
-    stl: "none",
-    prefer: true,
-    apex_available: [
-        "//apex_available:platform",
-        "//apex_available:anyapex",
+    local_include_dirs: [
+        "include",
+        "include/private",
+        "crt",
     ],
+    srcs: ["crt/crtend.S"],
+    defaults: ["crt_defaults"],
 }
 
 cc_prebuilt_library {
@@ -904,6 +882,11 @@ cc_prebuilt_library_shared {
 
 cc_prebuilt_library {
     name: "libasync_safe",
+    recovery_available: true,
+    vendor_available: true,
+    product_available: true,
+    ramdisk_available: true,
+    vendor_ramdisk_available: true,
     export_include_dirs: ["include"],
     system_shared_libs: [],
     stl: "none",
@@ -1035,4 +1018,12 @@ ndk_library {
     name: "libstdc++",
     symbol_file: "stubs/libc.map.txt",
     first_version: "9",
+}
+
+filegroup {
+    name: "kernel_input_headers",
+    srcs: [
+        "include/linux/input.h",
+        "include/linux/input-event-codes.h",
+    ],
 }
