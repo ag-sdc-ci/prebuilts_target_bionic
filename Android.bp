@@ -521,11 +521,6 @@ ndk_library {
     first_version: "9",
 }
 
-ndk_library {
-    name: "libstdc++",
-    symbol_file: "stubs/libc.map.txt",
-    first_version: "9",
-}
 
 cc_prebuilt_object {
     name: "crtbegin_so",
@@ -624,6 +619,8 @@ cc_prebuilt_object {
 
 cc_prebuilt_library {
     name: "libc",
+    recovery_available: true,
+    vendor_available: true,
     stubs: {
         symbol_file: "stubs/libc.map.txt",
         versions: [
@@ -704,6 +701,8 @@ cc_prebuilt_library_static {
 
 cc_prebuilt_library {
     name: "libm",
+    recovery_available: true,
+    vendor_available: true,
     stubs: {
         symbol_file: "stubs/libm.map.txt",
         versions: [
@@ -763,6 +762,8 @@ cc_prebuilt_library_static {
 
 cc_prebuilt_library {
     name: "libdl",
+    recovery_available: true,
+    vendor_available: true,
     stubs: {
         symbol_file: "stubs/libdl.map.txt",
         versions: [
@@ -932,4 +933,16 @@ cc_prebuilt_binary {
         "//apex_available:anyapex",
     ],
     prefer: true,
+}
+
+cc_defaults {
+    name: "linker_hugepage_aligned",
+    arch: {
+        arm64: {
+            ldflags: ["-z max-page-size=0x200000"],
+        },
+        x86_64: {
+            ldflags: ["-z max-page-size=0x200000"],
+        },
+    },
 }
